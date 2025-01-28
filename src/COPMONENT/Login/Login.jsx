@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 const Login = () => {
     const [pass,setpass]=useState(false)
     const hide=()=>{
@@ -16,6 +17,7 @@ const Login = () => {
                 <label htmlFor="" className="text-xl font-bold">Email:</label><br />
                 <input type={pass ? 'text':'password'} placeholder="Enter your email" className="border-2 border-black py-2 px-5 rounded-lg w-[300px]"/>  
                 </div>
+                <h1>Don't have account. <Link to='/resister'><span className="font-semibold" > Resister</span></Link></h1>
             </form>
         </div>
     );
