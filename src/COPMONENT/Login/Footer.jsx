@@ -23,6 +23,13 @@ const Footer = () => {
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
   </nav>
+  <nav>
+    <h6 className="footer-title">Our Social Media</h6>
+    <a href="https://www.facebook.com/DMHAJihad">Facebook</a>
+    <a href="https://github.com/devjihad">Github</a>
+    <a href="https://www.instagram.com/dmhajihad/">Instagram</a>
+    
+  </nav>
 </footer>
     );
 };
