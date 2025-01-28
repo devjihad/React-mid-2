@@ -1,0 +1,13 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#done{
+    background-color: beige;
+    color: rgb(218, 231, 231);
+}
+#done{
+    color: white;
+    font-size: larger;
+    font-weight: 800;
+}
