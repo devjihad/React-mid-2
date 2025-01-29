@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import img from '../assets/logo.png'
 import img2 from '../assets/user.png'
 import Marque from './Marque';
@@ -9,10 +9,11 @@ const Navbar = () => {
            <img height={'100px'} width={'100px'} src={img} alt="" /> 
            
            <div className='flex gap-5 text-xl font-bold'>
-           <Link ><p id='donee'>Home</p></Link>
-           <Link ><p id='donee'>About Us</p></Link>
-           <Link ><p id='donee'>Contact</p></Link>
-           <Link ><p id='donee'>Service</p></Link>
+            <NavLink to='/'>Home</NavLink>
+            <NavLink to='/About'>About</NavLink>
+            <NavLink to='/Carrer'>Carrer</NavLink>
+            <NavLink to='/service'>Service</NavLink>
+         
            </div>
            <div className='flex'>
             <img height={'100px'} width={'100px'} className='rounded-full' src={img2} alt="" />

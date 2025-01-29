@@ -32,7 +32,7 @@ const Login = () => {
                 <label htmlFor="" className="text-xl font-bold">Password:</label><br />
                 <input type={pass ? 'text':'password'} name="pass" placeholder="Enter your Password" className="border-2 border-black py-2 px-5 rounded-lg w-[300px]"/>  
                 </div>
-                <button>Login</button>
+                <button className="btn btn-active btn-neutral my-5 text-xl font-bold text-white px-10">Login</button>
                 <h1>Don't have account. <Link to='/resister'><span className="font-semibold" > Resister</span></Link></h1>
             </form>
         </div>
