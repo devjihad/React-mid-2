@@ -1,9 +1,13 @@
 import { GiRapidshareArrow } from "react-icons/gi";
 import { FaMoneyCheckDollar } from "react-icons/fa6";
 import { MdLocationOn } from "react-icons/md";
+import { toast, ToastContainer } from "react-toastify";
 const HomeDetails = ({loaderr}) => {
     console.log(loaderr)
     const {area,description,segment_name,rent,location,image, house_title,facilities }=loaderr
+    const book=()=>{
+        toast('This Home is Booked for you')
+    }
     return (
         <div className="max-w-6xl mx-auto grid grid-cols-4 mt-8 gap-3">
             <div className="col-span-3">
@@ -25,9 +29,10 @@ const HomeDetails = ({loaderr}) => {
                 <h1 className="flex gap-2 items-center text-xl font-bold mt-3"> <MdLocationOn />{segment_name}</h1>
                 <h1 className="flex gap-2 items-center text-xl font-bold mt-3"> <MdLocationOn />{location}</h1>
                 <div className="mt-3 text-center">
-                    <button className="btn btn-primary px-8 py-2 text-lg">Book </button>
+                    <button className="btn btn-primary px-8 py-2 text-lg" onClick={book}>Book </button>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

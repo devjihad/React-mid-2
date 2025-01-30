@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { providerContext } from "../../PROVIDER/Provider";
 import { updateProfile } from "firebase/auth";
 import { toast, ToastContainer } from "react-toastify";
@@ -8,13 +8,21 @@ import { toast, ToastContainer } from "react-toastify";
 const Resister = () => {
     const {resister} =useContext(providerContext)
     console.log(resister)
+    const navigate=useNavigate()
+    const [passworde, setpassworde]=useState(null)
     const Handle=(e)=>{
         e.preventDefault()
+        setpassworde(null)
         const main =e.target
         const Name =main.Name.value
         const email =main.email.value
         const photo =main.Photo.value
         const password =main.pass.value
+        // if(!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$ /.test(password)){
+        //     setpassworde('hello')
+        //     toast.error('the password is at least 8 characters long and includes at least one lowercase letter, one uppercase letter, one digit, and one special character')
+        //     return
+        // }
         resister(email,password)
         .then((result)=>{
             console.log(result.user)
@@ -24,14 +32,19 @@ const Resister = () => {
             })
             .then(()=>{
                 toast('User Updated')
+                toast('User Resister success')
             })
             .catch((err)=>{
-                console.log(err.message)
+                toast(err.message)
             })
-            toast('User Resister success')
+            navigate('/login')
+            
+           
         })
         .catch((err)=>{
-            console.log(err.message)
+            if(err.message=='Firebase: Error (auth/email-already-in-use).'){
+                toast('This email is already used')
+            }
         })
     }
     return (

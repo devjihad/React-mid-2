@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { providerContext } from "../../PROVIDER/Provider";
+import { toast, ToastContainer } from "react-toastify";
 const Login = () => {
     const [pass,setpass]=useState(false)
-    const {login}=useContext(providerContext)
+    const {login,}=useContext(providerContext)
     const hide=()=>{
         setpass(!pass)
     }
+    
     const log=(e)=>{
         e.preventDefault()
         const main =e.target
@@ -14,7 +16,8 @@ const Login = () => {
         const pass =main.pass.value
         login(email,pass)
         .then((res)=>{
-            console.log(res.user)
+           
+            toast( 'Login success')
         })
         .catch((err)=>{
             console.log(err.message)
@@ -27,7 +30,7 @@ const Login = () => {
                <div>
                <label htmlFor="" className="text-xl font-bold">Email:</label><br />
                <input type="email" name="email" placeholder="Enter your email" className="border-2 border-black py-2 px-5 rounded-lg w-[300px]"/>
-                </div><br />
+                </div>
                 <div>
                 <label htmlFor="" className="text-xl font-bold">Password:</label><br />
                 <input type={pass ? 'text':'password'} name="pass" placeholder="Enter your Password" className="border-2 border-black py-2 px-5 rounded-lg w-[300px]"/>  
@@ -35,6 +38,7 @@ const Login = () => {
                 <button className="btn btn-active btn-neutral my-5 text-xl font-bold text-white px-10">Login</button>
                 <h1>Don't have account. <Link to='/resister'><span className="font-semibold" > Resister</span></Link></h1>
             </form>
+            <ToastContainer/>
         </div>
     );
 };

@@ -5,6 +5,7 @@ import Login from "./COPMONENT/Login/Login"
 import Mainn from "./Main/Mainn"
 import Resister from "./COPMONENT/Login/Resister"
 import IndividualHome from "./COPMONENT/Home/IndividualHome"
+import Private from "./Private/Private"
 
 
 function App() {
@@ -24,7 +25,7 @@ const router =createBrowserRouter([
       {
         path:'/:id',
         loader:({params})=>fetch(` https://api2-kohl.vercel.app/allhouses/${params.id}`),
-        element:<IndividualHome></IndividualHome>
+        element:<Private><IndividualHome></IndividualHome></Private>
       },
       {
         path:'/resister',

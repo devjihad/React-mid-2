@@ -3,7 +3,7 @@ import { SiCashapp } from "react-icons/si";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const SingleHome = ({value}) => {
-    console.log(value)
+    // console.log(value)
     const {house_title,image,rent,area,location,id}=value
     return (
         <div>
